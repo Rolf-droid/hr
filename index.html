@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR Social Consulting</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header site-header--dark">
+      <div class="container header-inner">
+        <a href="#" class="logo" aria-label="HR Social Consulting - Inicio">
+          <img src="assets/img/home/logo.svg" alt="HR Social Consulting - CONFIANZA" />
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#nosotros" class="main-nav__link main-nav__link--active">Nosotros</a></li>
+            <li><a href="#servicios" class="main-nav__link">Servicios</a></li>
+            <li><a href="#proyectos" class="main-nav__link">Proyectos</a></li>
+            <li><a href="#clientes" class="main-nav__link">Nuestros Clientes</a></li>
+            <li><a href="#galeria" class="main-nav__link">Galería de fotos</a></li>
+            <li><a href="#cursos" class="main-nav__link">Nuestros Cursos</a></li>
+            <li class="header-actions">
+              <button type="button" class="btn-search" aria-label="Buscar">
+                <span class="btn-search__icon">Q</span>
+              </button>
+              <a href="#contacto" class="btn-primary btn-primary--header">Escríbenos</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SLIDER (3 banners) -->
+      <section class="hero-slider" id="inicio">
+        <div class="hero-slider__track">
+          <div class="hero-slide hero-slide--active" data-slide="0" style="background-image: url('assets/img/home/sliders1.png');">
+            <div class="hero-slide__overlay"></div>
+            <div class="container hero-slide__content">
+              <h1 class="hero-slide__title">VILCA</h1>
+              <p class="hero-slide__subtitle">Elaboración del Plan de Desarrollo Turístico Comunal de la zona.</p>
+              <a href="#proyectos" class="btn-primary btn-primary--hero">Saber más</a>
+            </div>
+          </div>
+          <div class="hero-slide" data-slide="1" style="background-image: url('assets/img/home/sliders2.png');">
+            <div class="hero-slide__overlay"></div>
+            <div class="container hero-slide__content">
+              <h1 class="hero-slide__title">Proyectos</h1>
+              <p class="hero-slide__subtitle">Experiencia en gestión territorial, diálogo y desarrollo sostenible en todo el país.</p>
+              <a href="#proyectos" class="btn-primary btn-primary--hero">Saber más</a>
+            </div>
+          </div>
+          <div class="hero-slide" data-slide="2" style="background-image: url('assets/img/home/sliders3.png');">
+            <div class="hero-slide__overlay"></div>
+            <div class="container hero-slide__content">
+              <h1 class="hero-slide__title">HR Social Consulting</h1>
+              <p class="hero-slide__subtitle">Confianza entre empresas, comunidades y el Estado.</p>
+              <a href="#nosotros" class="btn-primary btn-primary--hero">Saber más</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slider__dots" aria-label="Navegación del slider">
+          <button type="button" class="hero-slider__dot hero-slider__dot--active" data-slide="0" aria-label="Slide 1"></button>
+          <button type="button" class="hero-slider__dot" data-slide="1" aria-label="Slide 2"></button>
+          <button type="button" class="hero-slider__dot" data-slide="2" aria-label="Slide 3"></button>
+        </div>
+      </section>
+
+      <!-- NOSOTROS -->
+      <section class="section section-nosotros" id="nosotros">
+        <div class="container nosotros-layout">
+          <div class="nosotros-layout__image">
+            <img src="assets/img/home/nosotros.jpg" alt="Trabajo en campo de HR Social Consulting" />
+          </div>
+          <article class="nosotros-card">
+            <h2>Nosotros</h2>
+            <div class="nosotros-card__divider"></div>
+            <p>
+              Somos una empresa conformada por profesionales exitosos y un equipo
+              interdisciplinario, especializada en gestión social y ambiental,
+              orientada a fortalecer la confianza entre empresas, comunidades y el
+              Estado.
+            </p>
+            <p>
+              Contamos con un equipo interdisciplinario inscrito en el SENACE, con experiencia
+              en gestión territorial, diálogo y participación ciudadana para contribuir al
+              desarrollo sostenible de los proyectos.
+            </p>
+            <a href="#servicios" class="btn-primary">Saber más</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- SERVICIOS -->
+      <section class="section section-servicios" id="servicios">
+        <div class="container">
+          <h2 class="section-servicios__title">Servicios</h2>
+          <div class="section-servicios__divider"></div>
+          <p class="section-servicios__intro">
+            Nuestros servicios están orientados a ayudar a los clientes a cumplir sus metas, con sostenibilidad y desarrollo. Trabajando en consultoría, donde fortalecemos la gestión social; asesoría, con investigaciones personalizadas, y capacitaciones, donde compartimos experiencias exitosas en gestión social y ambiental.
+          </p>
+
+          <div class="servicio-block">
+            <div class="servicio-block__image">
+              <img src="assets/img/home/consultoria.png" alt="Consultoría - HR Social Consulting" />
+            </div>
+            <article class="servicio-card">
+              <h3 class="servicio-card__title">Consultoría:</h3>
+              <p>
+                Se encuentra enfocado en fortalecer la gestión social y ambiental, con profesionales especializados y con metodologías participativas de acuerdo a los estándares internacionales.
+              </p>
+              <a href="#contacto" class="btn-primary btn-primary--servicio">Leer más</a>
+            </article>
+          </div>
+
+          <div class="servicio-block servicio-block--reverse">
+            <div class="servicio-block__image">
+              <img src="assets/img/home/asesoria.png" alt="Asesoría - HR Social Consulting" />
+            </div>
+            <article class="servicio-card">
+              <h3 class="servicio-card__title">Asesoría:</h3>
+              <p>
+                Permite el fortalecimiento de la gestión social y ambiental, las investigaciones se dan de manera personalizada, con capacitación en el manejo de plataformas y programas específicos.
+              </p>
+              <a href="#contacto" class="btn-primary btn-primary--servicio">Leer más</a>
+            </article>
+          </div>
+
+          <div class="servicio-block">
+            <div class="servicio-block__image">
+              <img src="assets/img/home/capacitaciones.png" alt="Capacitaciones - HR Social Consulting" />
+            </div>
+            <article class="servicio-card">
+              <h3 class="servicio-card__title">Capacitaciones:</h3>
+              <p>
+                Contribuimos al intercambio de experiencias exitosas en gestión social y ambiental, teórico y práctico, a fin de fortalecer las capacidades y habilidades de los profesionales, con materiales didácticos, certificados con código QR y respaldo de colegios profesionales y universidades.
+              </p>
+              <a href="#contacto" class="btn-primary btn-primary--servicio">Leer más</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section class="section section-proyectos" id="proyectos">
+        <div class="container">
+          <h2 class="section-proyectos__title">Proyectos</h2>
+          <div class="section-proyectos__divider"></div>
+          <p class="section-proyectos__intro">
+            Nuestros trabajos desarrollados en campo demuestran nuestra amplia experiencia en el relacionamiento con diversos actores sociales en todo el país. Realizamos talleres, estudios, diagnósticos, planes de vida, inventarios antropológicos y levantamiento de información social y ambiental, acompañando procesos en distintos territorios y contextos a nivel nacional.
+          </p>
+          <div class="proyectos-grid">
+            <article class="proyecto-card">
+              <div class="proyecto-card__image">
+                <img src="assets/img/home/vilca.png" alt="Proyecto Vilca - RPNYC" />
+              </div>
+              <div class="proyecto-card__body">
+                <h3 class="proyecto-card__title">Vilca - RPNYC</h3>
+                <div class="proyecto-card__line"></div>
+                <p>
+                  Elaboración del Plan de Desarrollo Turístico Comunal de Vilca – Reserva Paisajística Nor Yauyos Cochas, región Lima.
+                </p>
+              </div>
+            </article>
+            <article class="proyecto-card">
+              <div class="proyecto-card__image">
+                <img src="assets/img/home/amazonas.png" alt="Proyecto Amazonas" />
+              </div>
+              <div class="proyecto-card__body">
+                <h3 class="proyecto-card__title">Amazonas</h3>
+                <div class="proyecto-card__line"></div>
+                <p>
+                  Generación y sistematización de información primaria para la identificación de pueblos indígenas u originarios en las comunidades campesinas de Huancas, Cuemal, Luya Viejo, Trita, Goncha (provincias de Chachapoyas y Luya), región Amazonas.
+                </p>
+              </div>
+            </article>
+            <article class="proyecto-card">
+              <div class="proyecto-card__image">
+                <img src="assets/img/home/Huanuco.png" alt="Proyecto Huánuco" />
+              </div>
+              <div class="proyecto-card__body">
+                <h3 class="proyecto-card__title">Huánuco</h3>
+                <div class="proyecto-card__line"></div>
+                <p>
+                  Relacionamiento comunitario y elaboración del estudio socioeconómico en Codo del Pozuzo. "Proyecto Paisajes Productivos Sostenibles", región Huánuco.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="section-proyectos__cta">
+            <a href="#galeria" class="btn-primary">Ver más</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- NUESTROS CLIENTES -->
+      <section class="section section-clientes" id="clientes">
+        <div class="section-clientes__bg" aria-hidden="true"></div>
+        <div class="section-clientes__overlay"></div>
+        <div class="container section-clientes__inner">
+          <h2 class="section-clientes__title">Nuestros Clientes</h2>
+          <div class="section-clientes__divider"></div>
+          <p class="section-clientes__intro">
+            Trabajamos con instituciones del sector público, empresas privadas, ONG y organismos de cooperación internacional, brindando nuestros <strong>servicios a nivel nacional.</strong>
+          </p>
+          <div class="clientes-logos">
+            <div class="clientes-logos__row">
+              <img src="assets/img/home/clientes/Sernanp.svg" alt="SERNANP" />
+              <img src="assets/img/home/clientes/colegio.svg" alt="Colegio Profesional de Antropólogos del Perú" />
+              <img src="assets/img/home/clientes/ambiente.svg" alt="Ministerio del Ambiente" />
+              <img src="assets/img/home/clientes/ministerio.svg" alt="Ministerio de Cultura" />
+              <img src="assets/img/home/clientes/cedia.svg" alt="CEDIA" />
+            </div>
+            <div class="clientes-logos__row">
+              <img src="assets/img/home/clientes/Nestle.svg" alt="Nestlé" />
+              <img src="assets/img/home/clientes/Helvetas.svg" alt="Helvetas" />
+              <img src="assets/img/home/clientes/Eart.svg" alt="Earthworm" />
+              <img src="assets/img/home/clientes/Solidaridad.svg" alt="Solidaridad" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERÍA -->
+      <section class="section" id="galeria">
+        <div class="container">
+          <h2>Galería de fotos</h2>
+          <p class="section-intro">
+            Imágenes de nuestros trabajos en campo en diversas regiones del
+            país.
+          </p>
+          <div class="gallery-grid">
+            <!-- Ejemplos de nombres de archivos:
+                 assets/img/galeria/vilca-rpnyc.jpg
+                 assets/img/galeria/junin.jpg
+                 assets/img/galeria/arequipa.jpg
+                 assets/img/galeria/huancavelica.jpg
+                 etc. -->
+            <img src="assets/img/galeria/vilca-rpnyc.jpg" alt="Vilca - RPNYC" />
+            <img src="assets/img/galeria/junin.jpg" alt="Junín" />
+            <img src="assets/img/galeria/arequipa.jpg" alt="Arequipa" />
+            <img src="assets/img/galeria/huancavelica.jpg" alt="Huancavelica" />
+          </div>
+        </div>
+      </section>
+
+      <!-- CURSOS -->
+      <section class="section section-alt" id="cursos">
+        <div class="container">
+          <h2>Nuestros cursos</h2>
+          <p class="section-intro">
+            Próximamente nuevos cursos de especialización en gestión social y
+            ambiental.
+          </p>
+          <div class="card-grid">
+            <article class="card card-course">
+              <!-- Imagen sugerida:
+                   assets/img/cursos/curso-relaciones-comunitarias.jpg -->
+              <div class="card-image">
+                <img
+                  src="assets/img/cursos/curso-relaciones-comunitarias.jpg"
+                  alt="Gestión estratégica de relaciones comunitarias"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Gestión estratégica de relaciones comunitarias</h3>
+                <p>Duración: 1 mes y medio · Precio: S/70.00</p>
+                <p class="small">
+                  962 378 581
+                </p>
+              </div>
+            </article>
+
+            <article class="card card-course">
+              <div class="card-image">
+                <img
+                  src="assets/img/cursos/curso-licencia-social.jpg"
+                  alt="Licencia social para operar"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Licencia social para operar</h3>
+                <p>Duración: 1 mes y medio · Precio: S/70.00</p>
+                <p class="small">
+                  962 378 581
+                </p>
+              </div>
+            </article>
+
+            <article class="card card-course">
+              <div class="card-image">
+                <img
+                  src="assets/img/cursos/curso-conflictos-socioambientales.jpg"
+                  alt="Prevención y gestión de conflictos socioambientales"
+                />
+              </div>
+              <div class="card-body">
+                <h3>Prevención y gestión de conflictos socioambientales</h3>
+                <p>Duración: 1 mes y medio · Precio: S/70.00</p>
+                <p class="small">
+                  962 378 581
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section class="section" id="contacto">
+        <div class="container contact-grid">
+          <div>
+            <h2>Escríbenos</h2>
+            <p>
+              Completa el formulario y nos pondremos en contacto contigo a la
+              brevedad.
+            </p>
+            <ul class="contact-info">
+              <li><strong>Celular:</strong> 962 378 581</li>
+              <!-- Reemplaza con los enlaces reales a tus redes -->
+              <li><strong>Redes sociales:</strong> enlaces a Facebook, LinkedIn, etc.</li>
+            </ul>
+          </div>
+          <form class="contact-form">
+            <label>
+              Nombre Completo
+              <input type="text" name="nombre" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Tema
+              <input type="text" name="tema" />
+            </label>
+            <label>
+              Mensaje
+              <textarea name="mensaje" rows="4" required></textarea>
+            </label>
+            <button type="submit" class="btn-primary">Enviar mensaje</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          ©
+          <span id="year"></span>
+          HR Social Consulting. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+  </html>
+
