@@ -672,6 +672,77 @@ h2 {
   opacity: 1;
 }
 
+/* Galería de fotos (debajo de clientes) */
+.section-galeria {
+  padding: 3.5rem 0 4rem;
+  background: #fff;
+}
+
+.section-galeria__title {
+  text-align: center;
+  color: #1f2933;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin: 0 0 0.35rem;
+}
+
+.section-galeria__divider {
+  width: 60px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  margin: 0 auto 2rem;
+}
+
+.galeria-fotos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.galeria-fotos__item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galeria-fotos__item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.galeria-fotos__caption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.section-galeria__cta {
+  text-align: center;
+}
+
+.section-galeria__cta .btn-primary {
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .galeria-fotos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria-fotos {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Legacy (otras secciones que usen clients-logos) */
 .clients-logos {
   display: flex;
@@ -752,13 +823,150 @@ h2 {
   box-shadow: 0 0 0 1px rgba(22, 35, 79, 0.25);
 }
 
+/* Footer reutilizable (partials/footer.html) */
 .site-footer {
-  padding: 1.5rem 0;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
-  background-color: #ffffff;
-  font-size: 0.85rem;
-  color: #6b7280;
+  background-color: #252b42;
+  color: #fff;
+  padding: 3rem 0 0;
+  margin-top: 0;
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  align-items: start;
+}
+
+.site-footer__col--logo {
+  max-width: 280px;
+}
+
+.site-footer__logo {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.site-footer__logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.site-footer__desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.site-footer__heading {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.site-footer__line {
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
+}
+
+.site-footer__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer__nav li + li {
+  margin-top: 0.6rem;
+}
+
+.site-footer__link {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.site-footer__link:hover,
+.site-footer__link--active {
+  color: var(--color-accent);
+}
+
+.site-footer__social {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.site-footer__social-link:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.site-footer__social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.site-footer__phone {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.site-footer__cta {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.site-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1rem 0;
   text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.site-footer__bottom .container p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .site-footer__col--logo {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 /* Hero slider responsivo */

@@ -222,25 +222,31 @@
         </div>
       </section>
 
-      <!-- GALERÍA -->
-      <section class="section" id="galeria">
+      <!-- GALERÍA DE FOTOS -->
+      <section class="section section-galeria" id="galeria">
         <div class="container">
-          <h2>Galería de fotos</h2>
-          <p class="section-intro">
-            Imágenes de nuestros trabajos en campo en diversas regiones del
-            país.
-          </p>
-          <div class="gallery-grid">
-            <!-- Ejemplos de nombres de archivos:
-                 assets/img/galeria/vilca-rpnyc.jpg
-                 assets/img/galeria/junin.jpg
-                 assets/img/galeria/arequipa.jpg
-                 assets/img/galeria/huancavelica.jpg
-                 etc. -->
-            <img src="assets/img/galeria/vilca-rpnyc.jpg" alt="Vilca - RPNYC" />
-            <img src="assets/img/galeria/junin.jpg" alt="Junín" />
-            <img src="assets/img/galeria/arequipa.jpg" alt="Arequipa" />
-            <img src="assets/img/galeria/huancavelica.jpg" alt="Huancavelica" />
+          <h2 class="section-galeria__title">Galería de fotos</h2>
+          <div class="section-galeria__divider"></div>
+          <div class="galeria-fotos">
+            <figure class="galeria-fotos__item">
+              <img src="assets/img/home/galeria/vilca.png" alt="Vilca - RPNYC" />
+              <figcaption class="galeria-fotos__caption">Vilca - RPNYC</figcaption>
+            </figure>
+            <figure class="galeria-fotos__item">
+              <img src="assets/img/home/galeria/junin.png" alt="Junín" />
+              <figcaption class="galeria-fotos__caption">Junín</figcaption>
+            </figure>
+            <figure class="galeria-fotos__item">
+              <img src="assets/img/home/galeria/arequipa.png" alt="Arequipa" />
+              <figcaption class="galeria-fotos__caption">Arequipa</figcaption>
+            </figure>
+            <figure class="galeria-fotos__item">
+              <img src="assets/img/home/galeria/huancavelica.png" alt="Huancavelica" />
+              <figcaption class="galeria-fotos__caption">Huancavelica</figcaption>
+            </figure>
+          </div>
+          <div class="section-galeria__cta">
+            <a href="#contacto" class="btn-primary">Ver más</a>
           </div>
         </div>
       </section>
@@ -345,17 +351,10 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>
-          ©
-          <span id="year"></span>
-          HR Social Consulting. Todos los derechos reservados.
-        </p>
-      </div>
-    </footer>
+    <div id="site-footer-container"></div>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/include-footer.js"></script>
   </body>
   </html>
 
