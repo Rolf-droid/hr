@@ -827,8 +827,9 @@ h2 {
 .site-footer {
   background-color: #252b42;
   color: #fff;
-  padding: 3rem 0 0;
+  padding: 3.5rem 0 0;
   margin-top: 0;
+  min-height: 280px;
 }
 
 .site-footer__inner {
@@ -849,9 +850,11 @@ h2 {
 }
 
 .site-footer__logo img {
-  height: 48px;
+  height: 56px;
   width: auto;
+  max-width: 100%;
   display: block;
+  object-fit: contain;
 }
 
 .site-footer__desc {

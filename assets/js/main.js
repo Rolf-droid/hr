@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear().toString();
   }
+  const footerYear = document.getElementById("footer-year");
+  if (footerYear) {
+    footerYear.textContent = new Date().getFullYear().toString();
+  }
 
   // Hero slider: 3 banners, dots y autoplay
   const slides = document.querySelectorAll(".hero-slide");
