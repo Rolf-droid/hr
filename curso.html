@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursos - HR Social Consulting</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .curso-banner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .curso-banner__image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .curso-banner__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 50%, transparent 100%);
+        pointer-events: none;
+      }
+
+      .curso-banner__content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 1rem;
+        z-index: 1;
+      }
+
+      .section-cursos-cards {
+        background: #d9d9d9;
+        padding: 1.7rem 0 2.6rem;
+      }
+
+      .cursos-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.1rem;
+      }
+
+      .curso-card {
+        background: #efefef;
+      }
+
+      .curso-card__media {
+        position: relative;
+        border-bottom: 3px solid #23a638;
+      }
+
+      .curso-card__media img {
+        width: 100%;
+        height: 185px;
+        object-fit: cover;
+      }
+
+      .curso-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(35, 166, 56, 0.72);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      .curso-card__icon {
+        width: 46px;
+        height: 46px;
+        border: 2px solid rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.35rem;
+        line-height: 1;
+        transform: translateY(4px);
+        transition: transform 0.25s ease;
+      }
+
+      .curso-card:hover .curso-card__overlay {
+        opacity: 1;
+      }
+
+      .curso-card:hover .curso-card__icon {
+        transform: translateY(0);
+      }
+
+      .curso-card__body {
+        padding: 0.72rem 0.88rem 0.95rem;
+        text-align: center;
+      }
+
+      .curso-card__kicker {
+        margin: 0;
+        color: #23a638;
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+
+      .curso-card__title {
+        margin: 0.36rem 0 0.58rem;
+        color: #16234f;
+        font-size: 1.96rem;
+        line-height: 1.02;
+        font-weight: 800;
+      }
+
+      .curso-card__objective {
+        margin: 0;
+        color: #7b7f8a;
+        font-size: 0.7rem;
+        line-height: 1.18;
+        text-align: left;
+      }
+
+      .curso-card__objective strong {
+        color: #23a638;
+      }
+
+      .curso-card__meta {
+        margin: 0.55rem 0 0.45rem;
+        text-align: left;
+        font-size: 0.82rem;
+        line-height: 1.22;
+        color: #7b7f8a;
+      }
+
+      .curso-card__meta strong {
+        color: #23a638;
+      }
+
+      .curso-card__cta {
+        display: inline-block;
+        min-width: 112px;
+        background: #23a638;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        padding: 0.15rem 0.65rem;
+      }
+
+      @media (max-width: 980px) {
+        .cursos-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .cursos-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header-container" data-header-path="partials/header.html"></div>
+
+    <main>
+      <section class="curso-banner" id="cursos">
+        <img class="curso-banner__image" src="assets/img/cursos/baner.png" alt="Nuestros cursos" />
+        <div class="curso-banner__overlay"></div>
+        <div class="curso-banner__content">
+          <h1 class="hero-slide__title">Nuestros cursos</h1>
+          <p class="hero-slide__subtitle hero-slide__subtitle--pill">
+            ¡Próximamente nuevos cursos de especialización!
+          </p>
+        </div>
+      </section>
+
+      <section class="section-cursos-cards" id="cursos-listado">
+        <div class="container">
+          <div class="cursos-grid">
+            <article class="curso-card">
+              <div class="curso-card__media">
+                <img src="assets/img/cursos/gestion.png" alt="Gestión estratégica de relaciones comunitarias" />
+                <div class="curso-card__overlay">
+                  <span class="curso-card__icon" aria-hidden="true">↪</span>
+                </div>
+              </div>
+              <div class="curso-card__body">
+                <p class="curso-card__kicker">Curso de Especialización</p>
+                <h2 class="curso-card__title">Gestión estratégica de relaciones comunitarias</h2>
+                <p class="curso-card__objective">
+                  <strong>Objetivo:</strong>
+                  Desarrollar en los participantes competencias para diseñar e implementar estrategias de gestión de relaciones comunitarias, basadas en el diálogo, la participación y la construcción de confianza, que contribuyan a sostenibilidad de los proyectos y a una convivencia positiva con las comunidades.
+                </p>
+                <p class="curso-card__meta"><strong>Duración:</strong> 1 mes y medio<br /><strong>Precio:</strong> S/7000</p>
+                <a href="#" class="curso-card__cta">962 378 581</a>
+              </div>
+            </article>
+
+            <article class="curso-card">
+              <div class="curso-card__media">
+                <img src="assets/img/cursos/licencia.png" alt="Licencia social para operar" />
+                <div class="curso-card__overlay">
+                  <span class="curso-card__icon" aria-hidden="true">↪</span>
+                </div>
+              </div>
+              <div class="curso-card__body">
+                <p class="curso-card__kicker">Curso de Especialización</p>
+                <h2 class="curso-card__title">Licencia social para operar</h2>
+                <p class="curso-card__objective">
+                  <strong>Objetivo:</strong>
+                  Fortalecer las capacidades de los participantes para comprender, gestionar y mantener la Licencia Social para Operar mediante estrategias de relacionamiento comunitario, comunicación efectiva y gestión de conflictos, contribuyendo al desarrollo sostenible de los proyectos y a relaciones de confianza con las comunidades.
+                </p>
+                <p class="curso-card__meta"><strong>Duración:</strong> 1 mes y medio<br /><strong>Precio:</strong> S/7000</p>
+                <a href="#" class="curso-card__cta">962 378 581</a>
+              </div>
+            </article>
+
+            <article class="curso-card">
+              <div class="curso-card__media">
+                <img src="assets/img/cursos/prevencion.png" alt="Prevención y gestión de conflictos socioambientales" />
+                <div class="curso-card__overlay">
+                  <span class="curso-card__icon" aria-hidden="true">↪</span>
+                </div>
+              </div>
+              <div class="curso-card__body">
+                <p class="curso-card__kicker">Curso de Especialización</p>
+                <h2 class="curso-card__title">Prevención y gestión de conflictos socioambientales</h2>
+                <p class="curso-card__objective">
+                  <strong>Objetivo:</strong>
+                  Fortalecer las capacidades de los participantes para identificar, prevenir y gestionar conflictos socioambientales mediante el análisis de actores, el diálogo y herramientas de negociación participativa, contribuyendo a la construcción de acuerdos sostenibles en los territorios.
+                </p>
+                <p class="curso-card__meta"><strong>Duración:</strong> 1 mes y medio<br /><strong>Precio:</strong> S/7000</p>
+                <a href="#" class="curso-card__cta">962 378 581</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer-container" data-footer-path="partials/footer.html"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/include-header.js"></script>
+    <script src="assets/js/include-footer.js"></script>
+  </body>
+</html>
