@@ -106,6 +106,50 @@
       .escribenos-form__submit:hover {
         opacity: 0.92;
       }
+
+      @media (max-width: 768px) {
+        .escribenos-form-section {
+          padding: 2.2rem 0 2.4rem;
+        }
+
+        .escribenos-form {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .escribenos-banner__content {
+          padding: 0 0.75rem;
+        }
+
+        .escribenos-banner__title {
+          font-size: clamp(1.5rem, 7vw, 2rem);
+        }
+
+        .escribenos-form-section {
+          padding: 1.8rem 0 2rem;
+        }
+
+        .escribenos-form__label {
+          font-size: 0.95rem;
+        }
+
+        .escribenos-form__input,
+        .escribenos-form__textarea {
+          padding: 0.62rem 0.8rem;
+          border-radius: 6px;
+        }
+
+        .escribenos-form__textarea {
+          min-height: 110px;
+        }
+
+        .escribenos-form__submit {
+          width: 100%;
+          max-width: 260px;
+          padding: 0.65rem 1rem;
+        }
+      }
     </style>
   </head>
   <body>
