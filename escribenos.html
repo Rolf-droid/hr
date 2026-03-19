@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escríbenos - HR Social Consulting</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .escribenos-banner {
+        position: relative;
+        width: 100%;
+        text-align: center;
+      }
+
+      .escribenos-banner__image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .escribenos-banner__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .escribenos-banner__content {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+      }
+
+      .escribenos-banner__title {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+      }
+
+      .escribenos-form-section {
+        background: #f2f2f2;
+        padding: 2.8rem 0 3.2rem;
+      }
+
+      .escribenos-form {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .escribenos-form__group {
+        margin-bottom: 1rem;
+      }
+
+      .escribenos-form__label {
+        display: block;
+        margin-bottom: 0.38rem;
+        color: #666;
+        font-size: 1.05rem;
+        font-weight: 500;
+      }
+
+      .escribenos-form__input,
+      .escribenos-form__textarea {
+        width: 100%;
+        border: 1px solid #dbdbdb;
+        border-radius: 8px;
+        background: #f7f7f7;
+        color: #333;
+        font: inherit;
+        padding: 0.72rem 0.9rem;
+        outline: none;
+      }
+
+      .escribenos-form__textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .escribenos-form__input:focus,
+      .escribenos-form__textarea:focus {
+        border-color: #c9c9c9;
+      }
+
+      .escribenos-form__actions {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .escribenos-form__submit {
+        border: 0;
+        border-radius: 4px;
+        background: #23a638;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        padding: 0.62rem 2.2rem;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+      }
+
+      .escribenos-form__submit:hover {
+        opacity: 0.92;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="site-header-container"
+      data-header-path="partials/header.html"
+      data-active-href="#escribenos"
+    ></div>
+
+    <main>
+      <section class="escribenos-banner" id="escribenos">
+        <img
+          class="escribenos-banner__image"
+          src="assets/img/escribenos/baner.jpg"
+          alt="Banner de Escríbenos"
+        />
+        <div class="escribenos-banner__overlay"></div>
+        <div class="escribenos-banner__content">
+          <h1 class="escribenos-banner__title">Escríbenos</h1>
+        </div>
+      </section>
+
+      <section class="escribenos-form-section" id="contacto-formulario">
+        <div class="container">
+          <form class="escribenos-form" action="#" method="post">
+            <div class="escribenos-form__group">
+              <label class="escribenos-form__label" for="nombre">Nombre Completo</label>
+              <input class="escribenos-form__input" type="text" id="nombre" name="nombre" />
+            </div>
+
+            <div class="escribenos-form__group">
+              <label class="escribenos-form__label" for="email">Email</label>
+              <input class="escribenos-form__input" type="email" id="email" name="email" />
+            </div>
+
+            <div class="escribenos-form__group">
+              <label class="escribenos-form__label" for="tema">Tema</label>
+              <input class="escribenos-form__input" type="text" id="tema" name="tema" />
+            </div>
+
+            <div class="escribenos-form__group">
+              <label class="escribenos-form__label" for="mensaje">Mensaje</label>
+              <textarea class="escribenos-form__textarea" id="mensaje" name="mensaje"></textarea>
+            </div>
+
+            <div class="escribenos-form__actions">
+              <button class="escribenos-form__submit" type="submit">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer-container" data-footer-path="partials/footer.html"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/include-header.js"></script>
+    <script src="assets/js/include-footer.js"></script>
+  </body>
+</html>
