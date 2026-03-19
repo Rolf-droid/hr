@@ -22,6 +22,30 @@
     return hrefMap[href] || href;
   }
 
+  function bindMobileMenu() {
+    var header = document.querySelector(".site-header");
+    if (!header) return;
+
+    var toggle = header.querySelector(".menu-toggle");
+    var nav = header.querySelector(".main-nav");
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    });
+
+    var navLinks = nav.querySelectorAll(".main-nav__link");
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menú");
+      });
+    });
+  }
+
   var container = document.getElementById("site-header-container");
   if (!container) return;
 
@@ -34,6 +58,7 @@
     })
     .then(function (html) {
       container.outerHTML = html;
+      bindMobileMenu();
 
       if (!activeHref) return;
 
@@ -55,8 +80,13 @@
         "    <a href=\"index.html\" class=\"logo\" aria-label=\"HR Social Consulting - Inicio\">",
         "      <img src=\"assets/img/home/logo.svg\" alt=\"HR Social Consulting - CONFIANZA\" />",
         "    </a>",
+        "    <button type=\"button\" class=\"menu-toggle\" aria-label=\"Abrir menú\" aria-expanded=\"false\" aria-controls=\"main-nav-list\">",
+        "      <span class=\"menu-toggle__bar\"></span>",
+        "      <span class=\"menu-toggle__bar\"></span>",
+        "      <span class=\"menu-toggle__bar\"></span>",
+        "    </button>",
         "    <nav class=\"main-nav\">",
-        "      <ul>",
+        "      <ul id=\"main-nav-list\">",
         "        <li><a href=\"nosotros.html\" class=\"main-nav__link main-nav__link--active\">Nosotros</a></li>",
         "        <li><a href=\"servicios.html\" class=\"main-nav__link\">Servicios</a></li>",
         "        <li><a href=\"proyecto.html\" class=\"main-nav__link\">Proyectos</a></li>",
@@ -78,6 +108,7 @@
         "  </div>",
         "</header>"
       ].join("");
+      bindMobileMenu();
     });
 })();
 
