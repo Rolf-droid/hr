@@ -1,3 +1,87 @@
+/* Fuentes locales (assets/fonts) */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DM_Sans/DMSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flama";
+  src: url("../fonts/flama-cufonfonts/Flama Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flama";
+  src: url("../fonts/flama-cufonfonts/Flama Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flama";
+  src: url("../fonts/flama-cufonfonts/Flama Bold Italic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --color-primary: #16234F;
+  --color-accent: #23A638;
+  --font-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Flama", "DM Sans", system-ui, sans-serif;
+  /* Títulos: DM Sans Bold, máx. 60px */
+  --font-title-max: 3.75rem;
+  --font-title-hero: clamp(1.75rem, 5vw, var(--font-title-max));
+  --font-title-section: clamp(1.75rem, 4vw, var(--font-title-max));
+}
+
 /* Estilos base y layout general */
 *,
 *::before,
@@ -7,10 +91,17 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   color: #1f2933;
   background-color: #f5f7fa;
   overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 img {
@@ -28,12 +119,6 @@ a {
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 1.5rem;
-}
-
-/* Colores del proyecto */
-:root {
-  --color-primary: #16234F;
-  --color-accent: #23A638;
 }
 
 .site-header {
@@ -298,7 +383,8 @@ a {
 }
 
 .hero-slide__title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-hero);
   font-weight: 700;
   color: #fff;
   margin: 0 0 0.5rem;
@@ -322,8 +408,9 @@ a {
   border-radius: 999px;
   background: var(--color-accent);
   color: #ffffff;
+  font-family: var(--font-display);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   text-shadow: none;
   max-width: 100%;
   white-space: normal;
@@ -401,9 +488,10 @@ a {
 .proyecto-item__title {
   margin: 0;
   color: #16234f;
+  font-family: var(--font-sans);
   font-size: clamp(1.3rem, 2.5vw, 2rem);
   line-height: 1.1;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .proyecto-item__text {
@@ -451,6 +539,12 @@ a {
   background-color: #ffffff;
 }
 
+h1,
+h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
 h2 {
   font-size: 1.75rem;
   margin-bottom: 0.75rem;
@@ -494,7 +588,8 @@ h2 {
 
 .intro-nosotros__title {
   margin: 0;
-  font-size: clamp(1.9rem, 3.5vw, 2.4rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
   font-weight: 700;
   color: var(--color-primary);
 }
@@ -523,8 +618,9 @@ h2 {
 .valores__title {
   text-align: center;
   color: var(--color-accent);
-  font-size: clamp(1.9rem, 3.2vw, 2.25rem);
-  font-weight: 800;
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   margin: 0 0 0.65rem;
 }
 
@@ -602,7 +698,8 @@ h2 {
 
 .vision-mision__heading {
   margin: 0;
-  font-size: 1.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
   font-weight: 700;
   color: var(--color-accent);
 }
@@ -704,7 +801,9 @@ h2 {
 .section-servicios__title {
   text-align: center;
   color: #fff;
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   margin-bottom: 0.35rem;
 }
 
@@ -838,7 +937,9 @@ h2 {
 
 .consultoria-card__title {
   color: #16a34a;
-  font-size: clamp(1.65rem, 2.4vw, 2rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   line-height: 1.1;
   margin: 0 0 0.7rem;
 }
@@ -895,7 +996,9 @@ h2 {
 
 .asesoria-card__title {
   color: #16a34a;
-  font-size: clamp(1.65rem, 2.4vw, 2rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   line-height: 1.1;
   margin: 0 0 0.6rem;
 }
@@ -962,7 +1065,9 @@ h2 {
 
 .capacitaciones-card__title {
   color: #16a34a;
-  font-size: clamp(1.65rem, 2.4vw, 2rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   line-height: 1.1;
   margin: 0 0 0.6rem;
 }
@@ -996,7 +1101,9 @@ h2 {
 .section-proyectos__title {
   text-align: center;
   color: #1f2933;
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   margin-bottom: 0.35rem;
 }
 
@@ -1163,7 +1270,9 @@ h2 {
 .section-clientes__title {
   text-align: center;
   color: #fff;
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   margin-bottom: 0.35rem;
 }
 
@@ -1232,7 +1341,9 @@ h2 {
 .section-galeria__title {
   text-align: center;
   color: #1f2933;
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-family: var(--font-sans);
+  font-size: var(--font-title-section);
+  font-weight: 700;
   margin: 0 0 0.35rem;
 }
 
@@ -1689,7 +1800,7 @@ h2 {
   }
 
   .hero-slide__title {
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    font-size: clamp(1.5rem, 6vw, var(--font-title-max));
   }
 
   .hero-slider__dots {
@@ -1791,15 +1902,15 @@ h2 {
   }
 
   .consultoria-card__title {
-    font-size: 1.8rem;
+    font-size: clamp(1.45rem, 4.5vw, var(--font-title-max));
   }
 
   .asesoria-card__title {
-    font-size: 1.8rem;
+    font-size: clamp(1.45rem, 4.5vw, var(--font-title-max));
   }
 
   .capacitaciones-card__title {
-    font-size: 1.8rem;
+    font-size: clamp(1.45rem, 4.5vw, var(--font-title-max));
   }
 
   .consultoria-card__col li {
