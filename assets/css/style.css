@@ -909,6 +909,20 @@ h2 {
   font-size: 1.25rem;
   margin: 0 0 0.75rem;
   font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.servicio-card__title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  margin-top: 0.35rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  box-shadow: 0 5px 0 0 var(--color-accent);
 }
 
 .servicio-card p {
@@ -916,6 +930,7 @@ h2 {
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0 0 1.25rem;
+  text-align: center;
 }
 
 .section-servicios p {
@@ -1212,15 +1227,20 @@ h2 {
   font-size: 1.1rem;
   font-weight: 700;
   color: #16234f;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.proyecto-card__line {
+.proyecto-card__title::after {
+  content: "";
   width: 50px;
-  height: 2px;
+  height: 3px;
+  margin-top: 0.35rem;
   border-radius: 999px;
   background: var(--color-accent);
-  margin: 0 auto 0.75rem;
+  box-shadow: 0 5px 0 0 var(--color-accent);
 }
 
 .proyecto-card p {
@@ -1228,6 +1248,7 @@ h2 {
   font-size: 0.9rem;
   line-height: 1.55;
   color: #6b7280;
+  text-align: center;
 }
 
 .section-proyectos__cta {
@@ -1303,13 +1324,14 @@ h2 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  filter: blur(4px);
+  transform: scale(1.06);
 }
-
 
 .section-clientes__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.58);
   pointer-events: none;
 }
 
@@ -1332,7 +1354,12 @@ h2 {
   height: 3px;
   border-radius: 999px;
   background: var(--color-accent);
-  margin: 0 auto 1.5rem;
+  margin: 0 auto;
+}
+
+.section-clientes__divider + .section-clientes__divider {
+  margin-top: 2px;
+  margin-bottom: 1.5rem;
 }
 
 .section-clientes__intro {
@@ -1374,14 +1401,29 @@ h2 {
   transition: opacity 0.2s ease;
 }
 
+/* Logos a color (raster en SVG): sin invertir — Ministerio Cultura / Ambiente */
+.clientes-logos__row img.clientes-logos__img--color {
+  filter: none;
+  opacity: 1;
+  height: auto;
+  max-height: 52px;
+  max-width: 248px;
+  min-width: 0;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
 .clientes-logos__row img:hover {
   opacity: 1;
 }
 
+
 /* Galería de fotos (debajo de clientes) */
 .section-galeria {
   padding: 3.5rem 0 4rem;
-  background: #fff;
+  background: #ffffff;
 }
 
 .section-galeria--page {
@@ -1389,28 +1431,42 @@ h2 {
   padding: 2rem 0 1.75rem;
 }
 
+.section-galeria__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
 .section-galeria__title {
   text-align: center;
-  color: #1f2933;
+  color: var(--color-primary);
   font-family: var(--font-sans);
   font-size: var(--font-title-section);
   font-weight: 700;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.65rem;
+  line-height: 1.15;
 }
 
+/* Dos líneas verdes finas paralelas bajo el título (mismo criterio que Proyectos) */
 .section-galeria__divider {
-  width: 60px;
-  height: 3px;
+  width: 56px;
+  height: 2px;
   border-radius: 999px;
   background: var(--color-accent);
-  margin: 0 auto 2rem;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.section-galeria__divider + .section-galeria__divider {
+  margin-top: 2px;
 }
 
 .galeria-fotos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.25rem;
 }
 
 .galeria-fotos__item {
@@ -1425,20 +1481,37 @@ h2 {
   padding: 0.55rem 0.55rem 0.35rem;
 }
 
-.galeria-fotos__item img {
+.galeria-fotos__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e8eaef;
+}
+
+.galeria-fotos__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Página galería.html: figuras sin contenedor .galeria-fotos__thumb */
+.galeria-fotos__item > img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 0;
   display: block;
 }
 
 .galeria-fotos__caption {
-  margin-top: 0.55rem;
+  margin-top: 0.65rem;
   text-align: center;
-  font-size: clamp(1rem, 2.3vw, 1.35rem);
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-weight: 700;
   color: var(--color-accent);
+  line-height: 1.25;
 }
 
 .galeria-fotos--page .galeria-fotos__caption {
@@ -1452,6 +1525,13 @@ h2 {
 
 .section-galeria__cta .btn-primary {
   text-decoration: none;
+}
+
+.btn-primary--galeria {
+  padding: 0.65rem 2.25rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 @media (max-width: 900px) {
@@ -1757,6 +1837,11 @@ h2 {
     max-width: 120px;
   }
 
+  .clientes-logos__row img.clientes-logos__img--color {
+    max-height: 46px;
+    max-width: 200px;
+  }
+
   .consultoria-card__top {
     grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
@@ -1928,6 +2013,11 @@ h2 {
     max-width: 100px;
   }
 
+  .clientes-logos__row img.clientes-logos__img--color {
+    max-height: 42px;
+    max-width: min(100%, 180px);
+  }
+
   .section-consultoria-detalle {
     padding: 1.75rem 0 2rem;
   }
@@ -2069,6 +2159,11 @@ h2 {
   .clientes-logos__row img {
     height: 30px;
     max-width: 90px;
+  }
+
+  .clientes-logos__row img.clientes-logos__img--color {
+    max-height: 38px;
+    max-width: min(100%, 160px);
   }
 
   .proyectos-cards-grid {
