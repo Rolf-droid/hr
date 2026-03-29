@@ -378,6 +378,13 @@ a {
   text-align: center;
 }
 
+.hero-slide__content--right {
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  text-align: left;
+}
+
 .hero-slide__content--centered .hero-slide__title {
   margin: 0;
 }
