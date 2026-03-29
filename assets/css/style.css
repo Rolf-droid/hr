@@ -74,6 +74,7 @@
 :root {
   --color-primary: #16234F;
   --color-accent: #23A638;
+  --color-text-plomo: #858585;
   --font-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Flama", "DM Sans", system-ui, sans-serif;
   /* Títulos: DM Sans Bold, máx. 60px */
@@ -355,6 +356,62 @@ a {
   height: 198px;
 }
 
+/* Banner Nosotros: franja más alta, tipo referencia de diseño */
+.hero-slider--nosotros.hero-slider--compact {
+  min-height: clamp(240px, 38vw, 420px);
+  height: auto;
+}
+
+.hero-slider--nosotros.hero-slider--compact .hero-slide--active {
+  min-height: clamp(240px, 38vw, 420px);
+  height: clamp(240px, 38vw, 420px);
+}
+
+/* Banner Servicios: hero panorámico (~250–340px), overlay oscuro uniforme, título centrado */
+.hero-slider--servicios.hero-slider--compact {
+  min-height: 0;
+  height: auto;
+}
+
+.hero-slider--servicios.hero-slider--compact .hero-slider__track {
+  min-height: clamp(250px, 26vw, 340px);
+  height: clamp(250px, 26vw, 340px);
+}
+
+.hero-slider--servicios.hero-slider--compact .hero-slide--active {
+  min-height: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-slider--servicios .hero-slide__overlay--servicios {
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-slider--servicios .hero-slide__content,
+.hero-slider--servicios .hero-slide__content--centered {
+  position: relative;
+  z-index: 2;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.hero-slide__title--page {
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 4.2vw, 2.75rem);
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: none;
+  margin: 0;
+}
+
 /* Banner de proyecto 10% más bajo */
 .hero-slider--compact-proyecto {
   min-height: 178px;
@@ -618,10 +675,10 @@ h2 {
   padding-bottom: 3.5rem;
 }
 
-/* Intro centrada estilo "Nosotros" (pantallazo) */
+/* Intro centrada "Nosotros": título navy, doble línea menta, texto centrado en columna */
 .section-intro-nosotros {
   background: #ffffff;
-  padding: 3.25rem 0 2.75rem;
+  padding: 4.5rem 1.25rem 4.25rem;
 }
 
 .intro-nosotros {
@@ -632,84 +689,96 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.65rem;
 }
 
 .intro-nosotros__title {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: var(--font-title-section);
+  font-size: clamp(2rem, 4.2vw, 2.75rem);
   font-weight: 700;
-  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  color: #1a2b48;
 }
 
+/* Dos líneas horizontales paralelas, más cortas que el título */
 .intro-nosotros__underline {
-  width: 64px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--color-accent);
+  width: 40px;
+  height: 2px;
+  background: #a8e6cf;
+  box-shadow: 0 5px 0 0 #a8e6cf;
+}
+
+.intro-nosotros__body {
+  margin-top: 1.35rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .intro-nosotros__text {
-  margin: 1.25rem auto 0;
-  max-width: 760px;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: #4b5563;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #1a2b48;
 }
 
 /* Nuestros Valores (cards) */
 .section-valores {
-  background: #f5f5f5;
-  padding: 3.75rem 0 4.25rem;
+  background: #f2f2f2;
+  padding: 3.75rem 1.25rem 4.5rem;
 }
 
 .valores__title {
   text-align: center;
   color: var(--color-accent);
   font-family: var(--font-sans);
-  font-size: var(--font-title-section);
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
   font-weight: 700;
-  margin: 0 0 0.65rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
 }
 
 .valores__subtitle {
   text-align: center;
-  max-width: 820px;
-  margin: 0 auto 2rem;
-  color: #334155;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 2.25rem;
+  color: var(--color-text-plomo);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
 .valores-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem 1.5rem;
+  gap: 1.35rem 1.35rem;
 }
 
 .valor-card {
   background: #ffffff;
-  border-radius: 0.75rem;
-  padding: 1.35rem 1.1rem 1.4rem;
-  min-height: 178px;
-  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem 1.35rem 1.55rem;
+  min-height: 168px;
+  box-shadow: 0 4px 24px rgba(22, 35, 79, 0.07);
 }
 
 .valor-card__title {
   text-align: center;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.65rem;
   color: var(--color-accent);
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   font-weight: 700;
+  line-height: 1.3;
 }
 
 .valor-card__text {
   margin: 0;
   text-align: center;
-  color: #6b7280;
-  font-size: 0.82rem;
-  line-height: 1.55;
+  color: var(--color-text-plomo);
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 @media (max-width: 900px) {
@@ -728,67 +797,91 @@ h2 {
   }
 }
 
-/* Visión / Misión centrado con círculo */
+/* Visión / Misión con círculo central (texto hacia el centro) */
 .section-vision-mision {
   background: #ffffff;
-  padding: 3.25rem 0;
+  padding: 2.5rem 1.25rem 3.5rem;
 }
 
 .vision-mision {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: 2.75rem;
+  gap: 2rem 2.25rem;
 }
 
 .vision-mision__col {
-  text-align: center;
+  min-width: 0;
+}
+
+/* Visión: alineado a la derecha hacia el círculo */
+.vision-mision__col:first-child {
+  text-align: right;
+}
+
+.vision-mision__col:first-child .vision-mision__text {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Misión: alineado a la izquierda hacia el círculo */
+.vision-mision__col:last-child {
+  text-align: left;
+}
+
+.vision-mision__col:last-child .vision-mision__text {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .vision-mision__heading {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: var(--font-title-section);
+  font-size: clamp(1.125rem, 2vw, 1.35rem);
   font-weight: 700;
+  line-height: 1.25;
   color: var(--color-accent);
 }
 
-.vision-mision__heading::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--color-accent);
-  margin: 0.55rem auto 0;
+.vision-mision__text {
+  margin: 0.75rem 0 0;
+  max-width: 22rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-plomo);
 }
 
-.vision-mision__text {
-  margin: 0.9rem auto 0;
-  max-width: 360px;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: #6b7280;
+.vision-mision__center {
+  flex-shrink: 0;
 }
 
 .vision-mision__circle {
-  width: clamp(210px, 26vw, 280px);
+  width: clamp(200px, 24vw, 270px);
   height: auto;
 }
 
 @media (max-width: 900px) {
   .vision-mision {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.75rem;
+  }
+
+  .vision-mision__col:first-child,
+  .vision-mision__col:last-child {
+    text-align: center;
+  }
+
+  .vision-mision__col:first-child .vision-mision__text,
+  .vision-mision__col:last-child .vision-mision__text {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 36rem;
   }
 
   .vision-mision__circle {
-    width: clamp(190px, 60vw, 260px);
+    width: clamp(200px, 58vw, 280px);
     margin: 0 auto;
-  }
-
-  .vision-mision__text {
-    max-width: 560px;
   }
 }
 
@@ -1002,194 +1095,267 @@ h2 {
   font-size: 0.85rem;
 }
 
-/* Seccion detalle de consultoria (pagina Servicios) */
+/* Página Servicios: fondo gris claro, tarjetas blancas (referencia diseño) */
 .section-consultoria-detalle {
-  background: #d9d9d9;
-  padding: 2.5rem 0 3rem;
+  background: #f4f4f4;
+  padding: 2.5rem 1.25rem 1.25rem;
+}
+
+.section-asesoria-detalle {
+  background: #f4f4f4;
+  padding: 1.25rem 1.25rem;
+}
+
+.section-capacitaciones-detalle {
+  background: #f4f4f4;
+  padding: 1.25rem 1.25rem 3.25rem;
 }
 
 .consultoria-card {
-  background: #f7f7f7;
-  border-radius: 14px;
-  padding: 1.9rem 2rem 2rem;
-  max-width: 980px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  overflow: visible;
+  max-width: 1040px;
   margin: 0 auto;
+  box-shadow: 0 4px 28px rgba(22, 35, 79, 0.08);
 }
 
+.asesoria-card,
+.capacitaciones-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 1040px;
+  margin: 0 auto;
+  box-shadow: 0 4px 28px rgba(22, 35, 79, 0.08);
+}
+
+/* Consultoría: tarjeta blanca uniforme, imagen muy redondeada, rejilla 2 columnas (referencia diseño) */
 .consultoria-card__top {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 1.6rem;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
   align-items: center;
-  margin-bottom: 1.5rem;
+  text-align: left;
+  margin-bottom: clamp(1.65rem, 3vw, 2.35rem);
 }
 
 .consultoria-card__image {
-  border-radius: 14px;
+  border-radius: clamp(20px, 2.8vw, 28px);
   overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-sizing: border-box;
 }
 
 .consultoria-card__image img {
   width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
 
-.consultoria-card__title {
-  color: #16a34a;
-  font-family: var(--font-sans);
-  font-size: var(--font-title-section);
-  font-weight: 700;
-  line-height: 1.1;
-  margin: 0 0 0.7rem;
+.consultoria-card__intro {
+  text-align: left;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.consultoria-card__intro p {
+.consultoria-card__title {
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+  font-weight: 700;
+  line-height: 1.22;
+  margin: 0 0 0.9rem;
+  letter-spacing: -0.02em;
+}
+
+.consultoria-card__intro-text {
   margin: 0;
-  color: #374151;
-  font-size: 0.95rem;
-  line-height: 1.45;
+  color: var(--color-text-plomo);
+  font-size: 0.96875rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.consultoria-card__intro-strong {
+  display: inline;
+  color: #16234F;
+  font-weight: 700;
 }
 
 .consultoria-card__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1.5rem;
-}
-
-.consultoria-card__col h4 {
-  color: #16a34a;
-  font-size: 1rem;
-  line-height: 1.35;
-  margin: 0 0 0.55rem;
-}
-
-.consultoria-card__col ul {
-  margin: 0 0 1rem 1rem;
+  gap: clamp(1.75rem, 3.5vw, 2.85rem);
+  text-align: left;
   padding: 0;
 }
 
-.consultoria-card__col li {
-  color: #6b7280;
-  font-size: 0.88rem;
-  line-height: 1.28;
-  margin-bottom: 0.16rem;
+.consultoria-card__subheading {
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.38;
+  margin: 0 0 0.65rem;
 }
 
-/* Seccion detalle de asesoria (pagina Servicios) */
-.section-asesoria-detalle {
-  background: #d9d9d9;
-  padding: 0 0 3rem;
+.consultoria-card__subheading:not(:first-child) {
+  margin-top: 1.6rem;
+}
+
+.consultoria-card__col--right .consultoria-card__subheading:first-child {
+  margin-top: 0;
+}
+
+.consultoria-card__list {
+  margin: 0;
+  padding: 0 0 0 1.2rem;
+  list-style-type: disc;
+}
+
+.consultoria-card__list li::marker {
+  color: #9ca3af;
+}
+
+.consultoria-card__list li {
+  color: var(--color-text-plomo);
+  font-size: 0.90625rem;
+  line-height: 1.6;
+  margin-bottom: 0.42rem;
+  padding-left: 0.2rem;
+}
+
+.consultoria-card__list li:last-child {
+  margin-bottom: 0;
 }
 
 .asesoria-card {
-  background: #f7f7f7;
-  border-radius: 14px;
-  padding: 1.9rem 2rem 2rem;
-  max-width: 980px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
-  gap: 1.7rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: stretch;
+}
+
+.asesoria-card__content {
+  text-align: left;
+  min-width: 0;
 }
 
 .asesoria-card__title {
-  color: #16a34a;
+  color: var(--color-accent);
   font-family: var(--font-sans);
-  font-size: var(--font-title-section);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 700;
-  line-height: 1.1;
-  margin: 0 0 0.6rem;
+  line-height: 1.2;
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
 }
 
 .asesoria-card__intro {
-  margin: 0 0 0.8rem;
-  color: #4b5563;
-  font-size: 0.93rem;
-  line-height: 1.35;
-  max-width: 33rem;
+  margin: 0 0 1rem;
+  color: var(--color-text-plomo);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  max-width: none;
+}
+
+.asesoria-card__intro strong {
+  color: #6a6a6a;
+  font-weight: 700;
 }
 
 .asesoria-card__list {
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 1.15rem;
   padding: 0;
 }
 
 .asesoria-card__list li {
-  color: #6b7280;
-  font-size: 0.88rem;
-  line-height: 1.28;
-  margin-bottom: 0.16rem;
+  color: var(--color-text-plomo);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin-bottom: 0.28rem;
+  padding-left: 0.15rem;
 }
 
 .asesoria-card__image {
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
+  min-height: 280px;
 }
 
 .asesoria-card__image img {
   width: 100%;
+  height: 100%;
+  min-height: 280px;
   display: block;
   object-fit: cover;
 }
 
-/* Seccion detalle de capacitaciones (pagina Servicios) */
-.section-capacitaciones-detalle {
-  background: #d9d9d9;
-  padding: 0 0 3rem;
-}
-
 .capacitaciones-card {
-  background: #f7f7f7;
-  border-radius: 14px;
-  padding: 1.9rem 2rem 2rem;
-  max-width: 980px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
-  gap: 1.7rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
   align-items: center;
 }
 
 .capacitaciones-card__image {
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
+  aspect-ratio: 1;
+  max-width: min(100%, 380px);
 }
 
 .capacitaciones-card__image img {
   width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
 
+.capacitaciones-card__content {
+  text-align: left;
+  min-width: 0;
+}
+
 .capacitaciones-card__title {
-  color: #16a34a;
+  color: var(--color-accent);
   font-family: var(--font-sans);
-  font-size: var(--font-title-section);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 700;
-  line-height: 1.1;
-  margin: 0 0 0.6rem;
+  line-height: 1.2;
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
 }
 
 .capacitaciones-card__intro {
-  margin: 0 0 0.8rem;
-  color: #4b5563;
-  font-size: 0.93rem;
-  line-height: 1.35;
-  max-width: 33rem;
+  margin: 0 0 1rem;
+  color: var(--color-text-plomo);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  max-width: none;
+}
+
+.capacitaciones-card__intro strong {
+  color: #6a6a6a;
+  font-weight: 700;
 }
 
 .capacitaciones-card__list {
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 1.15rem;
   padding: 0;
 }
 
 .capacitaciones-card__list li {
-  color: #6b7280;
-  font-size: 0.88rem;
-  line-height: 1.28;
-  margin-bottom: 0.16rem;
+  color: var(--color-text-plomo);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin-bottom: 0.28rem;
+  padding-left: 0.15rem;
 }
 
 /* Sección Proyectos (fondo gris claro #F5F5F5) */
@@ -1827,6 +1993,11 @@ h2 {
     min-height: 55vh;
   }
 
+  .hero-slider--servicios.hero-slider--compact .hero-slide--active {
+    min-height: 100%;
+    height: 100%;
+  }
+
   .hero-slide__content {
     padding: 2.5rem 1.25rem 3.5rem;
   }
@@ -1904,6 +2075,12 @@ h2 {
     gap: 1rem;
   }
 
+  .capacitaciones-card__image {
+    max-width: min(100%, 400px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .proyectos-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1971,6 +2148,11 @@ h2 {
 
   .hero-slide--active {
     min-height: 50vh;
+  }
+
+  .hero-slider--servicios.hero-slider--compact .hero-slide--active {
+    min-height: 100%;
+    height: 100%;
   }
 
   .hero-slide__content {
@@ -2076,6 +2258,10 @@ h2 {
     padding: 1.25rem 1.1rem 1.35rem;
   }
 
+  .consultoria-card__top {
+    margin-bottom: 1.35rem;
+  }
+
   .asesoria-card {
     padding: 1.25rem 1.1rem 1.35rem;
   }
@@ -2096,7 +2282,7 @@ h2 {
     font-size: clamp(1.45rem, 4.5vw, var(--font-title-max));
   }
 
-  .consultoria-card__col li {
+  .consultoria-card__list li {
     font-size: 0.85rem;
   }
 
@@ -2143,6 +2329,21 @@ h2 {
     height: 140px;
   }
 
+  .hero-slider--nosotros.hero-slider--compact,
+  .hero-slider--nosotros.hero-slider--compact .hero-slide--active {
+    min-height: 200px;
+    height: 200px;
+  }
+
+  .hero-slider--servicios.hero-slider--compact .hero-slider__track {
+    min-height: 200px;
+    height: 200px;
+  }
+
+  .hero-slider--servicios .hero-slide__title--page {
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem);
+  }
+
   .hero-slider {
     min-height: 45vh;
   }
@@ -2151,8 +2352,18 @@ h2 {
     min-height: 45vh;
   }
 
+  .hero-slider--servicios.hero-slider--compact .hero-slide--active {
+    min-height: 100%;
+    height: 100%;
+  }
+
   .hero-slide__content {
     padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .hero-slider--servicios.hero-slider--compact .hero-slide__content,
+  .hero-slider--servicios.hero-slider--compact .hero-slide__content--centered {
+    padding: 0.65rem 1rem;
   }
 
   .hero-slide__title {
