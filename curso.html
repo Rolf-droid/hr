@@ -76,7 +76,7 @@
       }
 
       .curso-card__head {
-        text-align: center;
+        text-align: left;
         margin-bottom: 0.75rem;
       }
 
@@ -90,12 +90,13 @@
 
       .curso-card__title {
         margin: 0.42rem 0 0;
-        color: #16234f;
         font-family: var(--font-sans);
-        /* ~15px mín. en móvil → 20px (1.25rem) en pantallas amplias */
-        font-size: clamp(0.9375rem, 0.8rem + 0.55vw, 1rem);
-        line-height: 1.12;
-        font-weight: 800;
+        font-weight: 700;
+        font-size: 1.6rem;
+        line-height: 1.5rem;
+        /* letter-spacing: 0; */
+        text-align: center;
+        color: #16234f;
         text-wrap: balance;
       }
 
@@ -104,7 +105,7 @@
         color: #7b7f8a;
         font-size: 0.75rem;
         line-height: 1.38;
-        text-align: left;
+        text-align: justify;
       }
 
       .curso-card__objective strong {
@@ -174,10 +175,6 @@
 
         .curso-card__head {
           margin-bottom: 0.85rem;
-        }
-
-        .curso-card__title {
-          line-height: 1.18;
         }
 
         .curso-card__objective {
