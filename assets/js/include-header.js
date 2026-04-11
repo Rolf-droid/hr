@@ -46,6 +46,130 @@
     });
   }
 
+  var SITE_PAGES = [
+    { title: "Inicio", href: "index.html", kw: "inicio principal home portada" },
+    { title: "Nosotros", href: "nosotros.html", kw: "nosotros empresa equipo quienes" },
+    { title: "Servicios", href: "servicios.html", kw: "servicios consultoría asesoría" },
+    { title: "Proyectos", href: "proyecto.html", kw: "proyectos trabajo" },
+    { title: "Nuestros Clientes", href: "index.html#clientes", kw: "clientes logos empresas" },
+    { title: "Galería de fotos", href: "galeria.html", kw: "galería fotos imágenes" },
+    { title: "Nuestros Cursos", href: "curso.html", kw: "cursos capacitación formación" },
+    { title: "Escríbenos", href: "escribenos.html", kw: "escribenos contacto escribir mensaje formulario" }
+  ];
+
+  function bindSiteSearch() {
+    var root = document.querySelector(".header-site-search");
+    if (!root) return;
+
+    var btn = root.querySelector(".btn-search");
+    var panel = root.querySelector(".header-site-search__panel");
+    var input = root.querySelector(".header-site-search__input");
+    var list = root.querySelector(".header-site-search__results");
+    var waLink = root.querySelector(".header-site-search__wa");
+    var phone = (root.getAttribute("data-whatsapp-phone") || "51962378581").replace(/\D/g, "");
+
+    if (!btn || !panel || !input || !list) return;
+
+    if (waLink && phone) {
+      var preset = "Hola, escribo desde la web de HR Social Consulting.";
+      waLink.href =
+        "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(preset);
+    }
+
+    function normalize(s) {
+      return (s || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function filterPages(q) {
+      var nq = normalize(q).trim();
+      if (!nq) return SITE_PAGES.slice();
+      return SITE_PAGES.filter(function (p) {
+        var hay = normalize(p.title + " " + p.kw + " " + p.href);
+        return hay.indexOf(nq) !== -1;
+      });
+    }
+
+    function renderResults() {
+      var items = filterPages(input.value);
+      list.innerHTML = "";
+      if (items.length === 0) {
+        var empty = document.createElement("li");
+        empty.className = "header-site-search__empty";
+        empty.setAttribute("role", "presentation");
+        empty.textContent = "No hay páginas que coincidan.";
+        list.appendChild(empty);
+        return;
+      }
+      items.forEach(function (p) {
+        var li = document.createElement("li");
+        li.className = "header-site-search__result";
+        var a = document.createElement("a");
+        a.href = p.href;
+        a.textContent = p.title;
+        a.setAttribute("role", "option");
+        a.addEventListener("click", function () {
+          closePanel();
+          input.value = "";
+          renderResults();
+        });
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }
+
+    function openPanel() {
+      panel.hidden = false;
+      btn.setAttribute("aria-expanded", "true");
+      renderResults();
+      input.focus();
+    }
+
+    function closePanel() {
+      panel.hidden = true;
+      btn.setAttribute("aria-expanded", "false");
+    }
+
+    function togglePanel() {
+      if (panel.hidden) openPanel();
+      else closePanel();
+    }
+
+    input.addEventListener("input", renderResults);
+
+    input.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter") return;
+      var first = list.querySelector(".header-site-search__result a");
+      if (first) {
+        e.preventDefault();
+        window.location.href = first.getAttribute("href");
+        closePanel();
+        input.value = "";
+        renderResults();
+      }
+    });
+
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      togglePanel();
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!panel.hidden && !root.contains(e.target)) {
+        closePanel();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) {
+        closePanel();
+        btn.focus();
+      }
+    });
+  }
+
   var container = document.getElementById("site-header-container");
   if (!container) return;
 
@@ -59,6 +183,7 @@
     .then(function (html) {
       container.outerHTML = html;
       bindMobileMenu();
+      bindSiteSearch();
 
       if (!activeHref) return;
 
@@ -94,11 +219,18 @@
         "        <li><a href=\"galeria.html\" class=\"main-nav__link\">Galería de fotos</a></li>",
         "        <li><a href=\"curso.html\" class=\"main-nav__link\">Nuestros Cursos</a></li>",
         "        <li class=\"header-actions\">",
-        "          <button type=\"button\" class=\"btn-search\" aria-label=\"Buscar\">",
-        "            <span class=\"btn-search__icon\" aria-hidden=\"true\">",
-        "              <img class=\"btn-search__img\" src=\"assets/img/home/lupa.png\" alt=\"\" width=\"18\" height=\"18\" decoding=\"async\" />",
-        "            </span>",
-        "          </button>",
+        "          <div class=\"header-site-search\" data-whatsapp-phone=\"51962378581\">",
+        "            <button type=\"button\" class=\"btn-search\" id=\"site-search-toggle\" aria-expanded=\"false\" aria-controls=\"site-search-panel\" aria-label=\"Buscar páginas del sitio\">",
+        "              <span class=\"btn-search__icon\" aria-hidden=\"true\">",
+        "                <img class=\"btn-search__img\" src=\"assets/img/home/lupa.png\" alt=\"\" width=\"18\" height=\"18\" decoding=\"async\" />",
+        "              </span>",
+        "            </button>",
+        "            <div id=\"site-search-panel\" class=\"header-site-search__panel\" role=\"region\" aria-labelledby=\"site-search-toggle\" hidden>",
+        "              <input type=\"search\" class=\"header-site-search__input\" id=\"site-search-input\" maxlength=\"120\" autocomplete=\"off\" placeholder=\"Buscar página…\" aria-label=\"Texto para filtrar páginas\" aria-controls=\"site-search-results\" />",
+        "              <ul id=\"site-search-results\" class=\"header-site-search__results\" role=\"listbox\" aria-label=\"Resultados\"></ul>",
+        "              <p class=\"header-site-search__wa-wrap\"><a class=\"header-site-search__wa\" href=\"https://api.whatsapp.com/send?phone=51962378581&amp;text=Hola\" target=\"_blank\" rel=\"noopener noreferrer\">Escríbenos por WhatsApp</a></p>",
+        "            </div>",
+        "          </div>",
         "          <a href=\"escribenos.html\" class=\"btn-primary btn-primary--header\">Escríbenos</a>",
         "        </li>",
         "      </ul>",
@@ -107,6 +239,7 @@
         "</header>"
       ].join("");
       bindMobileMenu();
+      bindSiteSearch();
     });
 })();
 
