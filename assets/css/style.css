@@ -86,7 +86,6 @@
 }
 
 /* DM Sans Bold (DMSans-Bold.ttf) + color/alineación según Figma */
-.nosotros-card > h2,
 .servicio-card__title,
 .consultoria-card__title,
 .asesoria-card__title,
@@ -99,6 +98,25 @@
   letter-spacing: 0;
   text-align: left;
   color: var(--color-accent);
+}
+
+/* Nosotros: título azul marino + doble línea verde (SVG) */
+.nosotros-card__heading {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: flex-start;
+}
+
+.nosotros-card__heading h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--font-article-heading);
+  line-height: normal;
+  letter-spacing: 0;
+  text-align: left;
+  color: var(--color-primary);
+  margin: 0 0 0.35rem;
 }
 
 /* Estilos base y layout general */
@@ -1139,10 +1157,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.nosotros-card > h2 {
-  margin: 0 0 0.25rem;
+  border-right: 2px solid #16234f;
 }
 
 .nosotros-card .btn-primary {
@@ -1154,16 +1169,17 @@ h2 {
 .nosotros-card__divider {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   align-items: flex-start;
+  width: 100%;
   margin-bottom: 1.25rem;
 }
 
 .nosotros-card__divider-line {
-  width: 64px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--color-accent);
+  display: block;
+  width: 56%;
+  height: auto;
+  max-width: 91px;
 }
 
 .nosotros-card p {
@@ -1171,6 +1187,10 @@ h2 {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #16234f;
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .nosotros-card p:last-of-type {
@@ -1183,26 +1203,39 @@ h2 {
   padding: 3.5rem 0 4rem;
 }
 
+.section-servicios__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-servicios__title {
   text-align: center;
   color: #fff;
   font-family: var(--font-sans);
   font-size: var(--font-title-section);
   font-weight: 700;
-  margin-bottom: 0.35rem;
+  margin: 0 0 0.35rem;
 }
 
 .section-servicios__divider {
-  width: 60px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--color-accent);
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
-.section-servicios__divider + .section-servicios__divider {
-  margin-top: 2px;
-  margin-bottom: 1.5rem;
+.section-servicios__divider-line {
+  display: block;
+  width: 56%;
+  height: auto;
+  max-width: 91px;
 }
 
 .section-servicios__intro {
@@ -1326,13 +1359,15 @@ h2 {
 }
 
 .consultoria-card {
+  --consultoria-heading-green: #23a638;
+  --consultoria-body: #2c3e50;
   background: #ffffff;
-  border-radius: 20px;
-  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border-radius: clamp(20px, 2.2vw, 28px);
+  padding: clamp(1.85rem, 4.2vw, 2.85rem) clamp(1.75rem, 4vw, 2.75rem);
   overflow: visible;
-  max-width: 1040px;
+  max-width: 1100px;
   margin: 0 auto;
-  box-shadow: 0 4px 28px rgba(22, 35, 79, 0.08);
+  box-shadow: 0 4px 32px rgba(22, 35, 79, 0.07);
 }
 
 .asesoria-card,
@@ -1377,21 +1412,22 @@ h2 {
   justify-content: center;
 }
 
-.consultoria-card__title {
+.consultoria-card .consultoria-card__title {
   margin: 0 0 0.9rem;
+  color: var(--consultoria-heading-green, #23a638);
 }
 
 .consultoria-card__intro-text {
   margin: 0;
-  color: var(--color-text-plomo);
-  font-size: 0.96875rem;
-  line-height: 1.48;
+  color: var(--consultoria-body, #2c3e50);
+  font-size: clamp(0.9375rem, 1.1vw, 1.03125rem);
+  line-height: 1.55;
   font-weight: 400;
 }
 
 .consultoria-card__intro-strong {
   display: inline;
-  color: #16234F;
+  color: inherit;
   font-weight: 700;
 }
 
@@ -1403,12 +1439,12 @@ h2 {
   padding: 0;
 }
 
-.consultoria-card__subheading {
-  color: var(--color-accent);
+.consultoria-card .consultoria-card__subheading {
+  color: var(--consultoria-heading-green, #23a638);
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
   font-weight: 700;
-  line-height: 1.28;
+  line-height: 1.3;
   margin: 0 0 0.65rem;
 }
 
@@ -1430,10 +1466,10 @@ h2 {
   color: #9ca3af;
 }
 
-.consultoria-card__list li {
-  color: var(--color-text-plomo);
+.consultoria-card .consultoria-card__list li {
+  color: var(--consultoria-body, #2c3e50);
   font-size: 0.90625rem;
-  line-height: 1.32;
+  line-height: 1.38;
   margin-bottom: 0.42rem;
   padding-left: 0.2rem;
 }
