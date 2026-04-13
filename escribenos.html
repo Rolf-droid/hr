@@ -108,6 +108,31 @@
         opacity: 0.92;
       }
 
+      .escribenos-form__submit:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+      }
+
+      .escribenos-form__status {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        text-align: center;
+      }
+
+      .escribenos-form__status--success {
+        background: #e8f6eb;
+        color: #1b5e20;
+        border: 1px solid #a5d6a7;
+      }
+
+      .escribenos-form__status--error {
+        background: #ffebee;
+        color: #b71c1c;
+        border: 1px solid #ef9a9a;
+      }
+
       @media (max-width: 768px) {
         .escribenos-form-section {
           padding: 2.2rem 0 2.4rem;
@@ -175,30 +200,66 @@
 
       <section class="escribenos-form-section" id="contacto-formulario">
         <div class="container">
-          <form class="escribenos-form" action="#" method="post">
+          <form class="escribenos-form" id="escribenos-form" action="#" method="post" novalidate>
             <div class="escribenos-form__group">
               <label class="escribenos-form__label" for="nombre">Nombre Completo</label>
-              <input class="escribenos-form__input" type="text" id="nombre" name="nombre" />
+              <input
+                class="escribenos-form__input"
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                maxlength="200"
+                autocomplete="name"
+              />
             </div>
 
             <div class="escribenos-form__group">
               <label class="escribenos-form__label" for="email">Email</label>
-              <input class="escribenos-form__input" type="email" id="email" name="email" />
+              <input
+                class="escribenos-form__input"
+                type="email"
+                id="email"
+                name="email"
+                required
+                maxlength="320"
+                autocomplete="email"
+              />
             </div>
 
             <div class="escribenos-form__group">
               <label class="escribenos-form__label" for="tema">Tema</label>
-              <input class="escribenos-form__input" type="text" id="tema" name="tema" />
+              <input
+                class="escribenos-form__input"
+                type="text"
+                id="tema"
+                name="tema"
+                required
+                maxlength="300"
+              />
             </div>
 
             <div class="escribenos-form__group">
               <label class="escribenos-form__label" for="mensaje">Mensaje</label>
-              <textarea class="escribenos-form__textarea" id="mensaje" name="mensaje"></textarea>
+              <textarea
+                class="escribenos-form__textarea"
+                id="mensaje"
+                name="mensaje"
+                required
+                maxlength="8000"
+              ></textarea>
             </div>
 
             <div class="escribenos-form__actions">
               <button class="escribenos-form__submit" type="submit">Enviar</button>
             </div>
+            <p
+              id="escribenos-form-status"
+              class="escribenos-form__status"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
           </form>
         </div>
       </section>
@@ -206,8 +267,12 @@
 
     <div id="site-footer-container" data-footer-path="partials/footer.html"></div>
 
+    <script>
+      window.HR_WEB3FORMS_ACCESS_KEY = "43acb1d3-c2ae-4e11-98fc-2ee7ef670f09";
+    </script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/include-header.js"></script>
     <script src="assets/js/include-footer.js"></script>
+    <script src="assets/js/escribenos-form.js"></script>
   </body>
 </html>
