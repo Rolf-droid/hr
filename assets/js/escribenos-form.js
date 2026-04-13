@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  // La bandeja de destino la fija Web3Forms en su panel (debe ser consultinghrsocial@gmail.com).
+
   var WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
   var form = document.getElementById("escribenos-form");

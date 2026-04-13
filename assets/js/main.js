@@ -43,28 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
   if (totalSlides > 1) {
     resetAutoplay();
   }
-
-  // Escríbenos: enviar al chat de WhatsApp vía API (enlace HTML / redirección)
-  const escribenosForm = document.querySelector(".escribenos-form");
-  if (escribenosForm) {
-    const waPhone = "51962378581";
-    escribenosForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const nombre = document.getElementById("nombre")?.value.trim() || "";
-      const email = document.getElementById("email")?.value.trim() || "";
-      const tema = document.getElementById("tema")?.value.trim() || "";
-      const mensaje = document.getElementById("mensaje")?.value.trim() || "";
-      const parts = [
-        "Hola HR Social Consulting, escribo desde el formulario web:",
-        nombre && `Nombre: ${nombre}`,
-        email && `Email: ${email}`,
-        tema && `Tema: ${tema}`,
-        mensaje && `Mensaje:\n${mensaje}`
-      ].filter(Boolean);
-      const text = parts.join("\n");
-      window.location.href =
-        "https://api.whatsapp.com/send?phone=" + waPhone + "&text=" + encodeURIComponent(text);
-    });
-  }
 });
 
