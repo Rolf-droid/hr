@@ -2313,7 +2313,20 @@ h2 {
   color: #fff;
 }
 
+.site-footer__phone-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-footer__phone-link:hover,
+.site-footer__phone-link:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
 .site-footer .site-footer__cta.btn-primary {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-sans);
   font-weight: 700;
   font-style: italic;
