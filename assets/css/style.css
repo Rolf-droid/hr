@@ -83,6 +83,12 @@
   --font-title-section: clamp(1.75rem, 4vw, var(--font-title-max));
   /* Títulos en artículos/tarjetas — Figma: DM Sans Bold, 35px máx., #23A638, izquierda */
   --font-article-heading: clamp(1.25rem, 3vw, 2.1875rem);
+  /* Offset para anclas con header sticky (~min-height 5rem + padding) */
+  --scroll-padding-top: 5.5rem;
+}
+
+html {
+  scroll-padding-top: var(--scroll-padding-top);
 }
 
 /* DM Sans Bold (DMSans-Bold.ttf) + color/alineación según Figma */

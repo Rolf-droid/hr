@@ -170,6 +170,26 @@
     });
   }
 
+  /**
+   * El header se inyecta de forma asíncrona: el scroll al #fragmento ocurre antes
+   * y la altura real del menú desplaza las secciones. Re-centramos tras el layout.
+   */
+  function scrollToHashAfterLayout() {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    var id = decodeURIComponent(hash.slice(1));
+    if (!id) return;
+    function doScroll() {
+      var target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ block: "start", behavior: "auto" });
+      }
+    }
+    requestAnimationFrame(function () {
+      requestAnimationFrame(doScroll);
+    });
+  }
+
   var container = document.getElementById("site-header-container");
   if (!container) return;
 
@@ -196,6 +216,8 @@
       var selector = '.main-nav__link[href="' + activeHref + '"]';
       var link = document.querySelector(selector);
       if (link) link.classList.add("main-nav__link--active");
+
+      scrollToHashAfterLayout();
     })
     .catch(function () {
       // Fallback en caso de fallo de fetch (por ejemplo, apertura directa por file://)
@@ -240,6 +262,7 @@
       ].join("");
       bindMobileMenu();
       bindSiteSearch();
+      scrollToHashAfterLayout();
     });
 })();
 
