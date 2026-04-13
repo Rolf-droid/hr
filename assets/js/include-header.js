@@ -237,7 +237,7 @@
         "        <li><a href=\"nosotros.html\" class=\"main-nav__link main-nav__link--active\">Nosotros</a></li>",
         "        <li><a href=\"servicios.html\" class=\"main-nav__link\">Servicios</a></li>",
         "        <li><a href=\"proyecto.html\" class=\"main-nav__link\">Proyectos</a></li>",
-        "        <li><a href=\"#clientes\" class=\"main-nav__link\">Nuestros Clientes</a></li>",
+        "        <li><a href=\"index.html#clientes\" class=\"main-nav__link\">Nuestros Clientes</a></li>",
         "        <li><a href=\"galeria.html\" class=\"main-nav__link\">Galería de fotos</a></li>",
         "        <li><a href=\"curso.html\" class=\"main-nav__link\">Nuestros Cursos</a></li>",
         "        <li class=\"header-actions\">",
