@@ -5,17 +5,17 @@
  * En páginas dentro de subcarpetas:
  *   <div id="site-header-container" data-header-path="../partials/header.html"></div>
  * Opcional:
- *   data-active-href="nosotros.html" para marcar el link activo en el menú
+ *   data-active-href="nosotros" (o #nosotros) para marcar el link activo en el menú
  */
 (function () {
   var hrefMap = {
-    "#nosotros": "nosotros.html",
-    "#servicios": "servicios.html",
-    "#proyectos": "proyecto.html",
-    "#galeria": "galeria.html",
-    "#curso": "curso.html",
-    "#cursos": "curso.html",
-    "#escribenos": "escribenos.html"
+    "#nosotros": "nosotros",
+    "#servicios": "servicios",
+    "#proyectos": "proyecto",
+    "#galeria": "galeria",
+    "#curso": "curso",
+    "#cursos": "curso",
+    "#escribenos": "escribenos"
   };
 
   function normalizeHref(href) {
@@ -47,14 +47,14 @@
   }
 
   var SITE_PAGES = [
-    { title: "Inicio", href: "index.html", kw: "inicio principal home portada" },
-    { title: "Nosotros", href: "nosotros.html", kw: "nosotros empresa equipo quienes" },
-    { title: "Servicios", href: "servicios.html", kw: "servicios consultoría asesoría" },
-    { title: "Proyectos", href: "proyecto.html", kw: "proyectos trabajo" },
-    { title: "Nuestros Clientes", href: "index.html#clientes", kw: "clientes logos empresas" },
-    { title: "Galería de fotos", href: "galeria.html", kw: "galería fotos imágenes" },
-    { title: "Nuestros Cursos", href: "curso.html", kw: "cursos capacitación formación" },
-    { title: "Escríbenos", href: "escribenos.html", kw: "escribenos contacto escribir mensaje formulario" }
+    { title: "Inicio", href: "./", kw: "inicio principal home portada" },
+    { title: "Nosotros", href: "nosotros", kw: "nosotros empresa equipo quienes" },
+    { title: "Servicios", href: "servicios", kw: "servicios consultoría asesoría" },
+    { title: "Proyectos", href: "proyecto", kw: "proyectos trabajo" },
+    { title: "Nuestros Clientes", href: "./#clientes", kw: "clientes logos empresas" },
+    { title: "Galería de fotos", href: "galeria", kw: "galería fotos imágenes" },
+    { title: "Nuestros Cursos", href: "curso", kw: "cursos capacitación formación" },
+    { title: "Escríbenos", href: "escribenos", kw: "escribenos contacto escribir mensaje formulario" }
   ];
 
   function bindSiteSearch() {
@@ -212,7 +212,7 @@
         l.classList.remove("main-nav__link--active");
       });
 
-      // Match por el href exacto (por ejemplo "nosotros.html")
+      // Match por el href exacto (por ejemplo "nosotros")
       var selector = '.main-nav__link[href="' + activeHref + '"]';
       var link = document.querySelector(selector);
       if (link) link.classList.add("main-nav__link--active");
@@ -224,7 +224,7 @@
       container.innerHTML = [
         "<header class=\"site-header\">",
         "  <div class=\"container header-inner\">",
-        "    <a href=\"index.html\" class=\"logo\" aria-label=\"HR Social Consulting - Inicio\">",
+        "    <a href=\"./\" class=\"logo\" aria-label=\"HR Social Consulting - Inicio\">",
         "      <img src=\"assets/img/home/logo.svg\" alt=\"HR Social Consulting - CONFIANZA\" />",
         "    </a>",
         "    <button type=\"button\" class=\"menu-toggle\" aria-label=\"Abrir menú\" aria-expanded=\"false\" aria-controls=\"main-nav-list\">",
@@ -234,12 +234,12 @@
         "    </button>",
         "    <nav class=\"main-nav\">",
         "      <ul id=\"main-nav-list\">",
-        "        <li><a href=\"nosotros.html\" class=\"main-nav__link main-nav__link--active\">Nosotros</a></li>",
-        "        <li><a href=\"servicios.html\" class=\"main-nav__link\">Servicios</a></li>",
-        "        <li><a href=\"proyecto.html\" class=\"main-nav__link\">Proyectos</a></li>",
-        "        <li><a href=\"index.html#clientes\" class=\"main-nav__link\">Nuestros Clientes</a></li>",
-        "        <li><a href=\"galeria.html\" class=\"main-nav__link\">Galería de fotos</a></li>",
-        "        <li><a href=\"curso.html\" class=\"main-nav__link\">Nuestros Cursos</a></li>",
+        "        <li><a href=\"nosotros\" class=\"main-nav__link main-nav__link--active\">Nosotros</a></li>",
+        "        <li><a href=\"servicios\" class=\"main-nav__link\">Servicios</a></li>",
+        "        <li><a href=\"proyecto\" class=\"main-nav__link\">Proyectos</a></li>",
+        "        <li><a href=\"./#clientes\" class=\"main-nav__link\">Nuestros Clientes</a></li>",
+        "        <li><a href=\"galeria\" class=\"main-nav__link\">Galería de fotos</a></li>",
+        "        <li><a href=\"curso\" class=\"main-nav__link\">Nuestros Cursos</a></li>",
         "        <li class=\"header-actions\">",
         "          <div class=\"header-site-search\" data-whatsapp-phone=\"51962378581\">",
         "            <button type=\"button\" class=\"btn-search\" id=\"site-search-toggle\" aria-expanded=\"false\" aria-controls=\"site-search-panel\" aria-label=\"Buscar páginas del sitio\">",
@@ -253,7 +253,7 @@
         "              <p class=\"header-site-search__wa-wrap\"><a class=\"header-site-search__wa\" href=\"https://api.whatsapp.com/send?phone=51962378581&amp;text=Hola\" target=\"_blank\" rel=\"noopener noreferrer\">Escríbenos por WhatsApp</a></p>",
         "            </div>",
         "          </div>",
-        "          <a href=\"escribenos.html\" class=\"btn-primary btn-primary--header\">Escríbenos</a>",
+        "          <a href=\"escribenos\" class=\"btn-primary btn-primary--header\">Escríbenos</a>",
         "        </li>",
         "      </ul>",
         "    </nav>",
