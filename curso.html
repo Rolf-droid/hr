@@ -18,6 +18,7 @@
       }
 
       .curso-card {
+        position: relative;
         display: flex;
         flex-direction: column;
         min-height: 100%;
@@ -25,6 +26,17 @@
         border: 1px solid rgba(22, 35, 79, 0.08);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         overflow: hidden;
+      }
+
+      .curso-card__facebook-link {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+
+      .curso-card__facebook-link:focus-visible {
+        outline: 2px solid #23a638;
+        outline-offset: 2px;
       }
 
       .curso-card__media {
@@ -143,6 +155,8 @@
       }
 
       .curso-card__cta-wrap {
+        position: relative;
+        z-index: 2;
         margin-top: auto;
         padding-top: 1rem;
         text-align: center;
@@ -267,10 +281,17 @@
                   <strong>Duración:</strong> 1 mes y medio<br />
                   <strong>Precio:</strong> S/ 70.00
                 </p>
-                <div class="curso-card__cta-wrap">
-                  <a href="https://wa.link/atlbq5" class="curso-card__cta" target="_blank" rel="noopener noreferrer">962 378 581</a>
-                </div>
               </div>
+              <div class="curso-card__cta-wrap">
+                <a href="https://wa.link/atlbq5" class="curso-card__cta" target="_blank" rel="noopener noreferrer">962 378 581</a>
+              </div>
+              <a
+                href="https://www.facebook.com/relacionistacomunitario21"
+                class="curso-card__facebook-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ver cursos y publicaciones en Facebook"
+              ></a>
             </article>
 
             <article class="curso-card">
@@ -291,10 +312,17 @@
                   <strong>Duración:</strong> 1 mes y medio<br />
                   <strong>Precio:</strong> S/ 70.00
                 </p>
-                <div class="curso-card__cta-wrap">
-                  <a href="https://wa.link/atlbq5" class="curso-card__cta" target="_blank" rel="noopener noreferrer">962 378 581</a>
-                </div>
               </div>
+              <div class="curso-card__cta-wrap">
+                <a href="https://wa.link/atlbq5" class="curso-card__cta" target="_blank" rel="noopener noreferrer">962 378 581</a>
+              </div>
+              <a
+                href="https://www.facebook.com/relacionistacomunitario21"
+                class="curso-card__facebook-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ver cursos y publicaciones en Facebook"
+              ></a>
             </article>
 
             <article class="curso-card">
@@ -315,10 +343,17 @@
                   <strong>Duración:</strong> 1 mes y medio<br />
                   <strong>Precio:</strong> S/ 70.00
                 </p>
-                <div class="curso-card__cta-wrap">
-                  <a href="https://wa.link/atlbq5" class="curso-card__cta" target="_blank" rel="noopener noreferrer">962 378 581</a>
-                </div>
               </div>
+              <div class="curso-card__cta-wrap">
+                <a href="https://wa.link/atlbq5" class="curso-card__cta" target="_blank" rel="noopener noreferrer">962 378 581</a>
+              </div>
+              <a
+                href="https://www.facebook.com/relacionistacomunitario21"
+                class="curso-card__facebook-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ver cursos y publicaciones en Facebook"
+              ></a>
             </article>
           </div>
         </div>
