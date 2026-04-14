@@ -15,12 +15,14 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1.1rem;
+        align-items: stretch;
       }
 
       .curso-card {
         position: relative;
         display: flex;
         flex-direction: column;
+        height: 100%;
         min-height: 100%;
         background: #ffffff;
         border: 1px solid rgba(22, 35, 79, 0.08);
@@ -142,7 +144,7 @@
       }
 
       .curso-card__meta {
-        margin: 0.65rem 0 0;
+        margin: auto 0 0;
         text-align: left;
         font-size: 0.8125rem;
         line-height: 1.45;
@@ -157,8 +159,9 @@
       .curso-card__cta-wrap {
         position: relative;
         z-index: 2;
-        margin-top: auto;
+        margin-top: 0;
         padding-top: 1rem;
+        padding-bottom: 1.1rem;
         text-align: center;
       }
 
